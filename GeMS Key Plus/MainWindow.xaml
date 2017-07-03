@@ -1,0 +1,195 @@
+﻿<Window x:Class="GemsKeyPlus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GemsKeyPlus"
+        mc:Ignorable="d"
+        Title="GeMS Key Plus v2.2" FontFamily="Segoe UI" FontSize="16" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize"  Icon=".\Images\key-variant.png" WindowStyle="None" BorderThickness="1" BorderBrush="{StaticResource Background}" PreviewKeyDown="Window_PreviewKeyDown" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
+    <Grid Width="auto" Height="auto" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Background="{StaticResource Background}" DockPanel.Dock="Top" 
+                   Visibility="Visible" HorizontalAlignment="Stretch" MouseDown="DockPanel_MouseDown" 
+                   Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0">
+            <Button x:Name="CloseButton" HorizontalAlignment="Right" Style="{StaticResource HotButton}" DockPanel.Dock="Right" Click="CloseButton_Click" Padding="7">
+                <Image Source=".\Images\close.png" Height="18"></Image>
+                <Button.ToolTip>Hide GeMS Key Plus</Button.ToolTip>
+            </Button>
+            <Button x:Name="SettingButton" HorizontalAlignment="Right" Style="{StaticResource HotButton}" DockPanel.Dock="Right" Padding="7">
+                <Image Source=".\Images\settings.png" Height="18"></Image>
+                <Button.ToolTip>Setting - Pending on Development</Button.ToolTip>
+            </Button>
+            <Button x:Name="DocumentButton" HorizontalAlignment="Right" Style="{StaticResource HotButton}" DockPanel.Dock="Right" Padding="7" Click="DocumentButton_Click">
+                <Image Source=".\Images\file-document-box.png" Height="18"></Image>
+                <Button.ToolTip>User Guide and Credit</Button.ToolTip>
+            </Button>
+            <Button x:Name="ToolButton" HorizontalAlignment="Right" Style="{StaticResource HotButton}" DockPanel.Dock="Right" Padding="7" Click="ToolButton_Click">
+                <Image Source=".\Images\wrench.png" Height="18"></Image>
+                <Button.ToolTip>Tools</Button.ToolTip>
+            </Button>
+            <Image DockPanel.Dock="Left" Source=".\Images\key-variant-Light.png" Height="24" Margin="10 0 0 0"></Image>
+            <Label DockPanel.Dock="Left" Foreground="White" Margin="0">GeMS Key Plus - V 2.2</Label>
+        </DockPanel>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Image Source=".\Images\background.png" Height="180" HorizontalAlignment="Right" VerticalAlignment="Top" Opacity="0.3"></Image>
+            <DockPanel MinWidth="535" MaxWidth="535" Margin="10" Grid.Column="0" Height="auto">
+                <TextBox x:Name="Box" FontFamily="Segoe UI Light" FontSize="30" Padding="5" Style="{StaticResource TextBox}" Margin="0 0 0 10" TextWrapping="Wrap" AcceptsReturn="True"  MaxHeight="300" MinHeight="55" VerticalScrollBarVisibility="Auto" TextChanged="TextBox_TextChanged" DockPanel.Dock="Top" VerticalContentAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                <StackPanel x:Name="PartPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label x:Name="PartLabel" Content="Part" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="ReleasedPartButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="G" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Released" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="CreatedPartButton" Width="95" Content="Created" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="AllPartButton" Width="95" Content="All" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                </StackPanel>
+                <StackPanel x:Name="BOMPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="BOM" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="ReleasedBOMButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="B" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Released" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="ReleasedBOMButtonWithPart" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="A" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="With Part" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="CreatedBOMButton" Width="95" Content="Created" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="CreatedBOMButtonWithPart" Width="95" Content="With Part" Margin="0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                </StackPanel>
+                <StackPanel x:Name="DocPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="Document" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="ReleasedDocButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="D" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Released" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="CreatedDocButton" Width="95" Content="Created" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="AllDocButton" Width="95" Content="All" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="RelatedDocButton" Width="95" Content="Related" Margin="0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                </StackPanel>
+                <StackPanel x:Name="DwgPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="Drawing" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="ReleasedDwgButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="W" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Released" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="CreatedDwgButton" Width="95" Content="Created" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="AllDwgButton" Width="95" Content="All" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="RelatedDwgButton" Width="95" Content="Related" Margin="0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                </StackPanel>
+                <StackPanel x:Name="ChangePanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="Change" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="ECOButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="E" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="ECO" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="ECRButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="R" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="ECR" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel x:Name="EqualityPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="eQuality" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="IFRButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="F" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="IFR" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="TFLButton" Width="95" Content="Fail Log" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="DIButton" Width="95" Content="Inspection" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                </StackPanel>
+
+                <StackPanel x:Name="eCPUPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="eCPU" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="PackageButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="C" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Package" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="RoutingButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="T" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Routing" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    
+                </StackPanel>
+                <StackPanel x:Name="SearchPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top">
+                    <Label Content="Search" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="GoogleButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="S" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Google" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="WikiButton" Width="95" Content="Wiki" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                    <Button x:Name="YouDaoButton" Width="95" Content="Translation" Margin="0 0 10 0" Style="{StaticResource RegularButton}" Click="Button_Click"></Button>
+                </StackPanel>
+                
+                
+                <StackPanel x:Name="OtherPanel" Orientation="Horizontal" Margin="0 3 0 3" DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label Content="Others" Width="100" HorizontalAlignment="Left"></Label>
+                    <Button x:Name="QuestButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Q" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Quest" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="IntouchButton" Width="95" Margin="0 0 10 0" Style="{StaticResource HotButton}" Click="Button_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="I" Background="White" Padding="0" VerticalAlignment="Center" Width="22" HorizontalContentAlignment="Center"></Label>
+                            <Label Content="Intouch" Foreground="White" Padding="3 0 3 0" VerticalAlignment="Center"></Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <DockPanel DockPanel.Dock="Top" Visibility="Collapsed">
+                    <Label x:Name="CountLabel" DockPanel.Dock="Left" Content="You opened 1 number with GeMS Key Plus"/>
+                    <ToggleButton DockPanel.Dock="Right" HorizontalAlignment="Right" Padding="0" Margin="0" Width="30"  HorizontalContentAlignment="Center" Visibility="Collapsed">
+                        <Image Source=".\Images\list.png"></Image>
+                    </ToggleButton>
+                </DockPanel>
+
+                <Button x:Name="MoreButton" Content="Load More" Style="{StaticResource HotButton}" Height="36" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Visibility="Visible" MouseEnter="MoreButton_MouseEnter" Margin="0 3 0 0 "></Button>
+            </DockPanel>
+
+        </Grid>
+        <DockPanel Grid.Column="1" Grid.Row="1" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" Margin="10" DockPanel.Dock="Top">
+                <Label FontFamily="Segoe UI Light" VerticalAlignment="Top">Select Mode</Label>
+                <ComboBox VerticalAlignment="Top" Width="200">
+                    <ComboBoxItem>Safety Vavle FAT</ComboBoxItem>
+                    <ComboBoxItem>Rapid Response 0</ComboBoxItem>
+                    <ComboBoxItem>WR Rapid Response</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <DataGrid Margin="10" Width="400" FontSize="12" FontFamily="Segoe UI Light">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Width="100" MinWidth="100"/>
+                    <DataGridTextColumn Header="Description" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

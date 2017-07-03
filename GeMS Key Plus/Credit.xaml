@@ -1,0 +1,187 @@
+﻿<Window x:Class="GemsKeyPlus.Credit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GemsKeyPlus"
+        mc:Ignorable="d"
+        Title="Software Information" Width="500" SizeToContent="Height" ResizeMode="NoResize" FontSize="14" FontFamily="Segoe UI Light" WindowStartupLocation="CenterOwner">
+    <Grid Margin="5">
+        <TabControl>
+            <TabItem Header="Information">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" MinHeight="100"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0 0 0 10" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Image Source=".\Images\key-variant.png" Height="48"></Image>
+                        <Label Content="GeMS Key Plus" FontFamily="Segoe UI Light" FontSize="40" />
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="1" Margin="5" VerticalAlignment="Center">
+                        <Label Content="Version 2.2.0" Padding="0" />
+                        <Label Content="by Bin Dong @ Schlumberger" Padding="0" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Padding="0 0 5 0">Email:</TextBlock>
+                            <TextBlock Padding="0 0 5 0" Grid.Row="2">Blog:</TextBlock>
+                            <TextBlock Grid.Column="2" Padding="0">
+                                <Hyperlink NavigateUri="mailto:bdong@slb.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="">
+                                    bdong@slb.com
+                                </Hyperlink>
+                            </TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="1" Padding="0">
+                                <Hyperlink NavigateUri="mailto:popmessiah@hotmail.com" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="">
+                                    popmessiah@hotmail.com
+                                </Hyperlink>
+                            </TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="2" Padding="0">
+                                <Hyperlink NavigateUri="http://mysite.slb.com/personalsite/bdong/Blog" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="">
+                                    Mysite
+                                </Hyperlink>
+                            </TextBlock>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="1" >
+                        <TextBlock TextWrapping="Wrap" Padding="5 0 5 0" FontSize="14" Text="Warning:"/>
+                        <TextBlock TextWrapping="Wrap" Padding="5 0 5 0" FontSize="12">
+                        This software contains Schlumberger confidential information. Using this software outside of Schlumberger network is not recommended. Distribution to individuals outside of Schlumberger is not allowed.
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Margin="10">
+                            <Hyperlink TextDecorations="" NavigateUri="http://mysite.slb.com/personalsite/bdong/GeMS%20Key%20Plus" RequestNavigate="Hyperlink_RequestNavigate">
+                                <Image Source=".\Images\Bin.ico" Height="24">
+                                    <Image.ToolTip>Check official website for latest update</Image.ToolTip>
+                                </Image>
+                            </Hyperlink>
+                        </TextBlock>
+                        <TextBlock Margin="10">
+                            <Hyperlink TextDecorations="" NavigateUri="https://rabbitism.visualstudio.com/defaultcollection/GeMS%20Key%20Plus" RequestNavigate="Hyperlink_RequestNavigate">
+                                <Image Source=".\Images\VSTS.png" Height="24">
+                                    <Image.ToolTip>Visit project on Visual Studio Team Service </Image.ToolTip>
+                                </Image>
+                            </Hyperlink>
+                        </TextBlock>
+                        <TextBlock Margin="10">
+                            <Hyperlink TextDecorations="" NavigateUri="https://github.com/" RequestNavigate="Hyperlink_RequestNavigate">
+                                <Image Source=".\Images\GitHub.png" Height="24">
+                                    <Image.ToolTip>Visit Github project. This project currently is not available on Github</Image.ToolTip>
+                                </Image>
+                            </Hyperlink>
+                        </TextBlock>
+                        
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="User Guide">
+                <StackPanel>
+                    <TextBlock FontFamily="Segoe UI Light" FontSize="24" Margin="10">How to use?</TextBlock>
+                    <TextBlock Margin="10 5 10 5">Step 1: Hightlight numbers from other software.</TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="10 5 10 5" HorizontalAlignment="Center">
+                        <Image Source=".\Images\Excel Highlight.png" Margin="10 0 10 0"></Image>
+                        <Image Source=".\Images\Text Highlight.png" Margin="10 0 10 0"></Image>
+                    </StackPanel>
+                    <StackPanel Margin="10 5 10 5" Orientation="Horizontal">
+                        <TextBlock Text="Step 2: Press" VerticalAlignment="Center"/>
+                        <Image Source=".\Images\Windows.png" Height="28" Margin="5 0 5 0"></Image>
+                        <TextBlock Text="+" VerticalAlignment="Center"/>
+                        <Image Source=".\Images\alphabet-uppercase-letter-g-512.png" Height="28" Margin="5 0 5 0"></Image>
+                        <TextBlock Text="(" VerticalAlignment="Center"/>
+                        <Image Source=".\Images\keyboard-key-alt-function-512.png" Height="28" Margin="5 0 5 0"></Image>
+                        <TextBlock Text="+" VerticalAlignment="Center"/>
+                        <Image Source=".\Images\alphabet-uppercase-letter-g-512.png" Height="28" Margin="5 0 5 0"></Image>
+                        <TextBlock Text="for Windows 10)" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <TextBlock Margin="10 5 10 5">Step 3: Click on buttons as you need and GO!</TextBlock>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Changelog" >
+                <StackPanel>
+                    <TextBlock FontFamily="Segoe UI Light" FontSize="24" Margin="20 10 0 0">Changelog</TextBlock>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" MinHeight="200" Height="200" Padding="10" MaxHeight="300" FontSize="12" Margin="0,0,-0.4,0">
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 2.2 Jun 13, 2017" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. Add a delay when opening multiple part numbers to maintain tabs' sequence in browser.&#xA;2. Add a tool to combine numbers together and sepeprate by commas, which is the form of multi search in GeMS.&#xA;3. Add a tool to convert to list and export to txt file, for BOM upload.&#xA;4. Polish User Guide."/>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 2.1 Jan 16, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. Allow opening multiple numbers together&#xA;2. Set textbox editable.&#xA;3. Add a button to open part property page and BOM page together.&#xA;4. Set UI Hotkey as Alt+G in Windows 10 because Win+G is reserved by XBOX Game Bar.&#xA;5. Fixed failure of determining part type when copying merged cells in Excel."/>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 2.0 Dec 22, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0"><Run Text="Initial Migration to .Net Framework"/></TextBlock>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.6 Jun 28, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <StackPanel>
+                                    <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. Fix not able to open reference document.&#xA;2. Add support to Daily Inspection Tickets. &#xA;3. Several cases are integrited into one hotkey: [Win+G, Space] or [Win+Alt+Space]&#xA;   1) 6 digits IFR (123456)&#xA;   2) 10 digits ProE Drawing (123456789D or A-123456_B)&#xA;   3) 9 digits Drawing (12345-123)&#xA;   4) 14 digits Quest Report (12345678987654)&#xA;   5) 8 digits ECO (12345678)&#xA;   6) 9 digits Part (123456789) Note: Document and ECR are not supported.&#xA;   7) 15 digits Part (12345-123-12345) &#xA;   8) 7 digits Daily Inspection Report in eQuality(1234567)&#xA;4. Another UI is added to support all kinds of search engines, Hotkey is Win+F. Currently include Google, Wikipedia, Speedia, LDAP, Youdao(a Chinese translate engine.)"/>
+                                </StackPanel>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.5 Apr 13, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. GeMS Key Plus now will automatically record amount of number you opened with GeMS Key Plus everyday. It is recorded in Record.ini along with .exe file. Move them together if necessary."/>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.4 Apr 8, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. UI will now generated beside cursor in activated window.  &#xA;2. Fix a bug that press Win+G when UI exists will cause memory crush."/>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.3 Apr 2, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0"><Run Text="1. Add Hotkeys to some UI buttons, set edit box read-only."/></TextBlock>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.2 Mar 29, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. Fix a bug that Part Numbers generated by Excel formulas cannot be copied.&#xA;2. Add English and Simplified Chinese user guide.&#xA;3. Add more Global hotkeys, please refer to user guide for details. &#xA;4. Optimize performance of date input (Win+T) to avoid clipboard conflict."/>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.1 Mar 28, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" Text="1. Fix a bug that press Win+G when UI is active will cause memory crush.&#xA;2. Change text label to editable textbox.&#xA;3. Switch positions of Created buttons and Released buttons."/>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <Label Content="Version 1.0 Mar 15, 2016" FontSize="16"/>
+                                </Expander.Header>
+                                <TextBlock TextWrapping="Wrap" Margin="30 0 0 0"><Run Text="1. GeMS Keys Plus Created in AutoHotKey, Improve GeMS Keys V4.0 GUI."/></TextBlock>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

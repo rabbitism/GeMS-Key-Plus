@@ -1,0 +1,71 @@
+﻿<Window x:Class="GemsKeyPlus.Tools"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GemsKeyPlus"
+        mc:Ignorable="d"
+        Title="Toolbox" Height="400" Width="500">
+    <TabControl>
+        <TabItem x:Name="FormatTab" Header="Format">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="ResultBox" Grid.ColumnSpan="2" Margin="5" TextWrapping="Wrap" AcceptsReturn="True" TextChanged="ResultBox_TextChanged">
+
+                </TextBox>
+                <Button Grid.Row="1" Margin="5" Click="String_Click">
+                    Convert to GeMS quick search string
+                </Button>
+                <Button Grid.Row="1" Grid.Column="1" Margin="5" Click="List_Click">
+                    Convert to BOM upload format
+                </Button>
+                <Button Grid.Row="2" Margin="5" Click="Copy_Click">
+                    Copy to Clipboard
+                </Button>
+                <Button Grid.Row="2" Grid.Column="1" Margin="5" Click="Save_Click">
+                    Export to txt file
+                </Button>
+
+            </Grid>
+        </TabItem>
+        <TabItem x:Name="ExtractTab" Header="Extract">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="InputBox" Margin="5" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto">
+                    
+                </TextBox>
+                <ListView x:Name="ResultList" Grid.Column="1" Margin="5">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="#" Width="30" DisplayMemberBinding="{Binding Count}"/>
+                            <GridViewColumn Header="Valid" Width="Auto" DisplayMemberBinding="{Binding Valid}"/>
+                            <GridViewColumn Header="Number" Width="Auto" DisplayMemberBinding="{Binding Number}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Grid.Row="1" Margin="5" Height="50" Click="ShowItem">
+                    Extract
+                </Button>
+                <Button Grid.Row="1" Grid.Column="1" Margin="5" Height="50" Click="CopyList_Click">
+                    Copy Valid Numbers
+                </Button>
+            </Grid>
+        </TabItem>
+    </TabControl>
+    
+</Window>
