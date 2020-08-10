@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeMS-Key-Plus", "GeMS-Key-Plus\GeMS-Key-Plus.csproj", "{2B0B174C-63F3-464B-9BC5-8B3E287C6CC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B0B174C-63F3-464B-9BC5-8B3E287C6CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0B174C-63F3-464B-9BC5-8B3E287C6CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0B174C-63F3-464B-9BC5-8B3E287C6CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0B174C-63F3-464B-9BC5-8B3E287C6CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC557FA2-B60A-4F21-85CE-D5D97CADBE9B}
+	EndGlobalSection
+EndGlobal
