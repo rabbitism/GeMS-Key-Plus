@@ -41,7 +41,7 @@
                                 <materialDesign:PackIcon Kind="Refresh" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
                             </Button>
                             <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                    
+                                    Click="CloseButton_Click"
                                     >
                                 <materialDesign:PackIcon Kind="WindowMinimize" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
                             </Button>
