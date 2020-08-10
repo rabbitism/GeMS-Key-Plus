@@ -4,9 +4,84 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GeMS_Key_Plus"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        SizeToContent="WidthAndHeight"
+        AllowsTransparency="True"
+        FontSize="16"
+        WindowStartupLocation="CenterScreen"
+        Title="GeMS Key Plus" d:DesignHeight="450" d:DesignWidth="800">
+    <materialDesign:Card Margin="2" Background="White" Opacity="0.95">
+        <StackPanel >
+            <materialDesign:ColorZone 
+                Mode="PrimaryMid" 
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                MouseDown="ColorZone_MouseDown"
+                                      
+                                      >
+                <StackPanel Margin="16 4">
+                    <Grid Margin="0 0 0 8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center"
+                                   Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
+                                   >GeMS Key Plus</TextBlock>
+                        <StackPanel Orientation="Horizontal" Grid.Column="1">
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                    
+                                    >
+                                <materialDesign:PackIcon Kind="Settings" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}">
+                                <materialDesign:PackIcon Kind="Refresh" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                    
+                                    >
+                                <materialDesign:PackIcon Kind="WindowMinimize" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Margin="0 0 0 16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+                            MinWidth="400"
+                            MaxWidth="800"
+                            Margin="8 0"
+                            AcceptsReturn="True"
+                            FontSize="20"
+                            TextWrapping="Wrap"
+                            Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                            Background="{StaticResource PrimaryHueMidForegroundBrush}"
+                            Foreground="{StaticResource PrimaryHueMidBrush}"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            >
+                            
+                        </TextBox>
+                        <Button Grid.Column="1" 
+                                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                Padding="8"
+                                >
+                            <materialDesign:PackIcon 
+                                Kind="History" 
+                                Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
+                                >
+                            </materialDesign:PackIcon>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </materialDesign:ColorZone>
+            
+        </StackPanel>
+        
 
-    </Grid>
+    </materialDesign:Card>
 </Window>

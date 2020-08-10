@@ -24,5 +24,13 @@ namespace GeMS_Key_Plus
         {
             InitializeComponent();
         }
+
+        private void ColorZone_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                DragMove();
+            }
+        }
     }
 }
