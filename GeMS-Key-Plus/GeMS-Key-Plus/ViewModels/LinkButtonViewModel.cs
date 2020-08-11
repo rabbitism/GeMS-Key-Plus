@@ -94,6 +94,10 @@ namespace GeMS_Key_Plus.ViewModels
 
         public void Query()
         {
+            if (string.IsNullOrWhiteSpace(GlobalVariables.QueryString))
+            {
+                return;
+            }
             var target = Prefix + GlobalVariables.QueryString + Suffix;
             var psi = new ProcessStartInfo
             {
@@ -101,6 +105,7 @@ namespace GeMS_Key_Plus.ViewModels
                 UseShellExecute = true
             };
             Process.Start(psi);
+            App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
         }
     }
 }

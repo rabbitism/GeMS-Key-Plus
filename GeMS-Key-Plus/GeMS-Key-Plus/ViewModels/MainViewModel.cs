@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Diagnostics;
+using System.Windows.Controls;
 
 namespace GeMS_Key_Plus.ViewModels
 {
@@ -31,6 +33,33 @@ namespace GeMS_Key_Plus.ViewModels
         {
             using(ApplicationContext context = new ApplicationContext())
             {
+                if (context.Buttons.Count() == 0)
+                {
+                    Debug.WriteLine("No Button in database");
+                    context.Buttons.Add(new LinkButton()
+                    {
+                        SpecialDelimiters = "",
+                        Suffix = "",
+                        Prefix = "https://www.google.com/search?q=",
+                        RequireSplit=  false,
+                        ButtonName = "Google",
+                        Category = "Search",
+                        Hotkey = "G",
+                        IsPrimary = true,
+                    });
+                    context.Buttons.Add(new LinkButton()
+                    {
+                        SpecialDelimiters = "",
+                        Suffix = "",
+                        Prefix = "https://www.youdao.com/w/eng/",
+                        RequireSplit = false,
+                        ButtonName = "Youdao",
+                        Category = "Search",
+                        Hotkey = "Y",
+                        IsPrimary = false,
+                    });
+                    context.SaveChanges();
+                }
                 this.ButtonPanel.Buttons = context.Buttons.ToList();
             }
         }

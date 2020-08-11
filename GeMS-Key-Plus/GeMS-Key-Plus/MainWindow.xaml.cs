@@ -82,7 +82,6 @@ namespace GeMS_Key_Plus
             {
                 vm.Query(e);
             }
-            this.WindowState = WindowState.Minimized;
         }
     }
 }

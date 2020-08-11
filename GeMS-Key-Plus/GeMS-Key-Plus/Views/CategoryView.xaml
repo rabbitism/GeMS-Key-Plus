@@ -6,11 +6,11 @@
              xmlns:local="clr-namespace:GeMS_Key_Plus.Views"
              xmlns:vm="clr-namespace:GeMS_Key_Plus.ViewModels" xmlns:controls="clr-namespace:GeMS_Key_Plus.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
              d:DataContext="{x:Type vm:CategoryViewModel}"
              >
     <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding CategoryName}">
+        <TextBlock Text="{Binding CategoryName}" 
+                   VerticalAlignment="Center">
         </TextBlock>
         <ItemsControl ItemsSource="{Binding Buttons}">
             <ItemsControl.ItemsPanel>
@@ -20,7 +20,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <controls:LinkButtonControl></controls:LinkButtonControl>
+                    <controls:LinkButtonControl Margin="8 4"></controls:LinkButtonControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

@@ -69,20 +69,22 @@
                             >
                             
                         </TextBox>
-                        <Button Grid.Column="1" 
-                                Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                Padding="8"
-                                >
-                            <materialDesign:PackIcon 
-                                Kind="History" 
-                                Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
-                                >
-                            </materialDesign:PackIcon>
-                        </Button>
+                        <materialDesign:PopupBox Grid.Column="1" Padding="8" IsTabStop="False">
+                            <materialDesign:PopupBox.ToggleContent>
+                                <materialDesign:PackIcon 
+                                    Kind="History"
+                                    Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
+                                    IsTabStop="False"
+                                    ></materialDesign:PackIcon>
+                            </materialDesign:PopupBox.ToggleContent>
+                            <TextBlock>
+                                Hello
+                            </TextBlock>
+                        </materialDesign:PopupBox>
                     </Grid>
                 </StackPanel>
             </materialDesign:ColorZone>
-            <views:ButtonPanelView DataContext="{Binding ButtonPanel}" KeyUp="ButtonPanelView_KeyUp"></views:ButtonPanelView>
+            <views:ButtonPanelView DataContext="{Binding ButtonPanel}" PreviewKeyUp="ButtonPanelView_KeyUp" Margin="16 8"></views:ButtonPanelView>
         </StackPanel>
         
 

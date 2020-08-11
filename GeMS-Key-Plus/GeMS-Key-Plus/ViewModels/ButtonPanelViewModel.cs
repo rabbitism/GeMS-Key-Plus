@@ -58,7 +58,7 @@ namespace GeMS_Key_Plus.ViewModels
             {
                 CategoryViewModel category = new CategoryViewModel();
                 category.CategoryName = key;
-                category.Buttons = new ObservableCollection<LinkButtonViewModel>(dict[key].Select(a=>new LinkButtonViewModel(a)));
+                category.Buttons = new ObservableCollection<LinkButtonViewModel>(dict[key].Select(a => new LinkButtonViewModel(a)));
                 Categories.Add(category);
                 foreach(LinkButtonViewModel button in category.Buttons)
                 {
