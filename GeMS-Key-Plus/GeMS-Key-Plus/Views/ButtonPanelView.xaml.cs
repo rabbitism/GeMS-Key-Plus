@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GeMS_Key_Plus.Controls
+namespace GeMS_Key_Plus.Views
 {
     /// <summary>
-    /// Interaction logic for LinkButton.xaml
+    /// Interaction logic for ButtonPanelView.xaml
     /// </summary>
-    public partial class LinkButton : UserControl
+    public partial class ButtonPanelView : UserControl
     {
-        public LinkButton()
+        public ButtonPanelView()
         {
             InitializeComponent();
         }
