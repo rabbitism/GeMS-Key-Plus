@@ -14,7 +14,6 @@
         SizeToContent="WidthAndHeight"
         AllowsTransparency="True"
         FontSize="16"
-        WindowStartupLocation="CenterScreen"
         d:DataContext="{x:Type vms:MainViewModel}"
         Title="GeMS Key Plus" d:DesignHeight="450" d:DesignWidth="800">
     <materialDesign:Card Margin="2" Background="White" Opacity="0.95">
@@ -71,7 +70,11 @@
                             >
                             
                         </TextBox>
-                        <materialDesign:PopupBox Grid.Column="1" Padding="8" IsTabStop="False" StaysOpen="True">
+                        <materialDesign:PopupBox 
+                            Grid.Column="1" 
+                            Padding="8" 
+                            IsTabStop="False" 
+                            StaysOpen="True">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Opened">
                                     <i:InvokeCommandAction Command="{Binding ReloadActionHistoryCommand}" ></i:InvokeCommandAction>
@@ -87,12 +90,26 @@
                             </materialDesign:PopupBox.ToggleContent>
                             
                             <StackPanel>
-                                <Grid>
-                                    
+                                <Grid Margin="16 8 16 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="History"></TextBlock>
+                                    <Button 
+                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Grid.Column="1"
+                                        Command="{Binding ClearCacheCommand}"
+                                    >
+                                        <materialDesign:PackIcon 
+                                            Kind="Eraser" 
+                                            ></materialDesign:PackIcon>
+                                    </Button>
                                 </Grid>
                                 <ListView 
                                     ItemsSource="{Binding ActionHistory}"
-                                    Width="600"
+                                    MaxWidth="600"
+                                    MinWidth="200"
                                     MaxHeight="600"
                                     SelectedItem="{Binding SelectedActionRecord}"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto"

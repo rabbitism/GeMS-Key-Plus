@@ -22,6 +22,7 @@ namespace GeMS_Key_Plus.ViewModels
         public DelegateCommand ReloadActionHistoryCommand { get; set; }
         public DelegateCommand<ActionRecordViewModel> QueryHistoryCommand { get; set; }
         public DelegateCommand ReloadButtonsCommand { get; set; }
+        public DelegateCommand ClearCacheCommand { get; set; }
 
         private string _queryString;
         public string QueryString {
@@ -94,6 +95,7 @@ namespace GeMS_Key_Plus.ViewModels
             ReloadActionHistoryCommand = new DelegateCommand(ReloadActionHistory);
             QueryHistoryCommand = new DelegateCommand<ActionRecordViewModel>(QueryHistory);
             ReloadButtonsCommand = new DelegateCommand(ReloadButtons);
+            ClearCacheCommand = new DelegateCommand(ClearCache);
         }
 
         public void Query(KeyEventArgs args)
@@ -123,6 +125,12 @@ namespace GeMS_Key_Plus.ViewModels
                 this.QueryString = record.Query;
                 this.ButtonPanel.Query(key);
             }
+        }
+
+        private void ClearCache()
+        {
+            GlobalVariables.ActionHistory.Clear();
+            ReloadActionHistory();
         }
         
     }

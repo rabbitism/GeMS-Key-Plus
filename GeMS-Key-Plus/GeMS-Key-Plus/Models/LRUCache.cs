@@ -59,6 +59,12 @@ namespace GeMS_Key_Plus.Models
             }
         }
 
+        public void Clear()
+        {
+            _list.Clear();
+            _nodeDictionary.Clear();
+            _dictionary.Clear();
+        }
 
     }
 }

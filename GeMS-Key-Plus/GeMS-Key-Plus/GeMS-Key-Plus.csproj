@@ -5,6 +5,10 @@
     <TargetFramework>netcoreapp5.0</TargetFramework>
     <RootNamespace>GeMS_Key_Plus</RootNamespace>
     <UseWPF>true</UseWPF>
+    <Version>0.1.0</Version>
+    <Authors>Rabbitism</Authors>
+    <Company>Galaxism</Company>
+    <Product>GEMS Key Plus</Product>
   </PropertyGroup>
 
   <ItemGroup>

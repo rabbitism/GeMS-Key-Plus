@@ -1,6 +1,7 @@
 ﻿using GeMS_Key_Plus.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,13 +32,14 @@ namespace GeMS_Key_Plus.Views
         public Setting(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            _mainViewModel = new MainViewModel();
+            _mainViewModel = mainViewModel;
             this.DataContext = new SettingViewModel();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            _mainViewModel?.ReloadButtonsCommand?.Execute();
+            _mainViewModel.ReloadButtonsCommand.Execute();
+            Debug.WriteLine("Close Settings");
             this.Close();
         }
 

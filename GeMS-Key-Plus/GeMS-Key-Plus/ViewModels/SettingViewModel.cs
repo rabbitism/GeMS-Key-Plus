@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace GeMS_Key_Plus.ViewModels
@@ -24,6 +25,16 @@ namespace GeMS_Key_Plus.ViewModels
                 _newButton = value;
                 RaisePropertyChanged(nameof(NewButton));
             } 
+        }
+
+        private LinkButton _selectedButton = new LinkButton();
+
+        public LinkButton SelectedButton {
+            get => _selectedButton;
+            set {
+                _selectedButton = value;
+                RaisePropertyChanged(nameof(SelectedButton));
+            }
         }
 
         private ObservableCollection<string> _availableKeys;
@@ -50,11 +61,13 @@ namespace GeMS_Key_Plus.ViewModels
         }
 
         public DelegateCommand SubmitCommand { get; set; }
+        public DelegateCommand<int?> DeleteCommand { get; set; }
 
         public SettingViewModel()
         {
             ReloadButtons();
             SubmitCommand = new DelegateCommand(SubmitNewButton);
+            DeleteCommand = new DelegateCommand<int?>(DeleteButton);
         }
 
         private void ReloadButtons()
@@ -98,6 +111,19 @@ namespace GeMS_Key_Plus.ViewModels
             }
             ReloadButtons();
             this.NewButton = new LinkButtonViewModel();
+        }
+
+        private void DeleteButton(int? i)
+        {
+            if (!i.HasValue) return;
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                LinkButton b = context.Buttons.FirstOrDefault(a => a.Id == i);
+                if (b is null) return;
+                context.Remove(b);
+                context.SaveChanges();
+            }
+            ReloadButtons();
         }
     }
 }

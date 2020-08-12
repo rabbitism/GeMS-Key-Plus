@@ -31,7 +31,17 @@
                     <materialDesign:PackIcon Kind="Close"></materialDesign:PackIcon>
                 </Button>
             </Grid>
-            <ListView ItemsSource="{Binding Buttons}">
+            <ListView 
+                ItemsSource="{Binding Buttons}"
+                SelectedItem="{Binding SelectedButton}"
+                >
+                <ListView.ContextMenu>
+                    <ContextMenu >
+                        <MenuItem Header="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedButton.Id}">
+                            
+                        </MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn 
