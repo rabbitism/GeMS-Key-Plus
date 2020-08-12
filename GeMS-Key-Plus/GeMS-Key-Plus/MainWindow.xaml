@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GeMS_Key_Plus"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:controls="clr-namespace:GeMS_Key_Plus.Controls"
         xmlns:vms="clr-namespace:GeMS_Key_Plus.ViewModels" xmlns:views="clr-namespace:GeMS_Key_Plus.Views"
         mc:Ignorable="d"
@@ -22,8 +23,7 @@
                 Mode="PrimaryMid" 
                 materialDesign:ShadowAssist.ShadowDepth="Depth2"
                 MouseDown="ColorZone_MouseDown"
-                                      
-                                      >
+                >
                 <StackPanel Margin="16 4">
                     <Grid Margin="0 0 0 8">
                         <Grid.ColumnDefinitions>
@@ -35,12 +35,14 @@
                                    >GeMS Key Plus</TextBlock>
                         <StackPanel Orientation="Horizontal" Grid.Column="1">
                             <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                    
+                                    Click="SettingButton_Click"
                                     >
                                 <materialDesign:PackIcon Kind="Settings" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
                             </Button>
-                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}">
-                                <materialDesign:PackIcon Kind="Refresh" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
+                            <Button 
+                                Style="{StaticResource MaterialDesignToolForegroundButton}" 
+                                Command="{Binding ReloadButtonsCommand}">
+                                <materialDesign:PackIcon Kind="Refresh" Foreground="{StaticResource PrimaryHueMidForegroundBrush}" ></materialDesign:PackIcon>
                             </Button>
                             <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
                                     Click="CloseButton_Click"
@@ -69,7 +71,13 @@
                             >
                             
                         </TextBox>
-                        <materialDesign:PopupBox Grid.Column="1" Padding="8" IsTabStop="False">
+                        <materialDesign:PopupBox Grid.Column="1" Padding="8" IsTabStop="False" StaysOpen="True">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Opened">
+                                    <i:InvokeCommandAction Command="{Binding ReloadActionHistoryCommand}" ></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            
                             <materialDesign:PopupBox.ToggleContent>
                                 <materialDesign:PackIcon 
                                     Kind="History"
@@ -77,9 +85,36 @@
                                     IsTabStop="False"
                                     ></materialDesign:PackIcon>
                             </materialDesign:PopupBox.ToggleContent>
-                            <TextBlock>
-                                Hello
-                            </TextBlock>
+                            
+                            <StackPanel>
+                                <Grid>
+                                    
+                                </Grid>
+                                <ListView 
+                                    ItemsSource="{Binding ActionHistory}"
+                                    Width="600"
+                                    MaxHeight="600"
+                                    SelectedItem="{Binding SelectedActionRecord}"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                    >
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button 
+                                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                                    Padding="16 0"
+                                                    VerticalAlignment="Top"
+                                                    Command="{Binding DataContext.QueryHistoryCommand, RelativeSource={RelativeSource AncestorType=local:MainWindow}}" 
+                                                    Content="{Binding Hotkey}"
+                                                    CommandParameter="{Binding}"
+                                                    ></Button>
+                                                <TextBlock Text="{Binding Query}" VerticalAlignment="Center"></TextBlock>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
                         </materialDesign:PopupBox>
                     </Grid>
                 </StackPanel>

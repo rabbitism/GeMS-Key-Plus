@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+#nullable enable
+
 namespace GeMS_Key_Plus.ViewModels
 {
     public class ButtonPanelViewModel : BindableBase
@@ -18,6 +20,7 @@ namespace GeMS_Key_Plus.ViewModels
         private ObservableCollection<CategoryViewModel> _categories;
         private List<LinkButton> _buttons;
         private Dictionary<Key, LinkButtonViewModel> _keyMapping;
+        private LinkButtonViewModel? _latestButton;
 
         public List<LinkButton> Buttons { 
             get => _buttons;
@@ -34,10 +37,11 @@ namespace GeMS_Key_Plus.ViewModels
                 RaisePropertyChanged(nameof(Categories));
             }
         }
+
         public ButtonPanelViewModel()
         {
-            Categories = new ObservableCollection<CategoryViewModel>();
-            Buttons = new List<LinkButton>();
+            _categories = new ObservableCollection<CategoryViewModel>();
+            _buttons = new List<LinkButton>();
             _keyMapping = new Dictionary<Key, LinkButtonViewModel>();
         }
 
@@ -70,11 +74,15 @@ namespace GeMS_Key_Plus.ViewModels
             }
         }
 
-        public void Query(KeyEventArgs args)
+        public void Query(Key key)
         {
-            if (_keyMapping.ContainsKey(args.Key))
+            if (key == Key.Space)
             {
-                _keyMapping[args.Key].Query();
+                _latestButton?.Query();
+            }
+            else if (_keyMapping.ContainsKey(key))
+            {
+                _keyMapping[key].Query();
             }
         }
     }

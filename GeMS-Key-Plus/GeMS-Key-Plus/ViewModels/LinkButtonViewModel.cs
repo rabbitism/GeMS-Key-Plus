@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Windows.Navigation;
 
 namespace GeMS_Key_Plus.ViewModels
@@ -105,6 +106,7 @@ namespace GeMS_Key_Plus.ViewModels
                 UseShellExecute = true
             };
             Process.Start(psi);
+            GlobalVariables.ActionHistory.Put(GlobalVariables.QueryString, HotKey);
             App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
         }
     }

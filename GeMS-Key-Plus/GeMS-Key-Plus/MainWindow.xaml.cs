@@ -2,6 +2,7 @@
 using GeMS_Key_Plus.Global;
 using GeMS_Key_Plus.Models;
 using GeMS_Key_Plus.ViewModels;
+using GeMS_Key_Plus.Views;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,15 @@ namespace GeMS_Key_Plus
             if(this.DataContext is MainViewModel vm)
             {
                 vm.Query(e);
+            }
+        }
+
+        private void SettingButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.DataContext is MainViewModel vm)
+            {
+                Setting settingWindow = new Setting(vm);
+                settingWindow.Show();
             }
         }
     }
