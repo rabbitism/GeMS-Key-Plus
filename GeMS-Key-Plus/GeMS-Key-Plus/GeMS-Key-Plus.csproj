@@ -9,6 +9,7 @@
     <Authors>Rabbitism</Authors>
     <Company>Galaxism</Company>
     <Product>GEMS Key Plus</Product>
+    <ApplicationIcon>Key.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

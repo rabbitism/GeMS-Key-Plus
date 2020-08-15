@@ -12,7 +12,7 @@
     <ItemsControl ItemsSource="{Binding Categories}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"></StackPanel>
+                    <StackPanel Orientation="Vertical"></StackPanel>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>

@@ -37,8 +37,9 @@
                 >
                 <ListView.ContextMenu>
                     <ContextMenu >
-                        <MenuItem Header="Delete" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedButton.Id}">
-                            
+                        <MenuItem Header="Delete" 
+                                  Command="{Binding DeleteCommand}"
+                                  CommandParameter="{Binding SelectedButton.Id}">
                         </MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
@@ -100,44 +101,55 @@
                 <StackPanel Width="400" Margin="24">
                     <TextBox
                         Text="{Binding NewButton.ButtonName}"
+                        Margin="0 4 0 4"
                         materialDesign:HintAssist.Hint="Button Name"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <ComboBox 
                         ItemsSource="{Binding AvailableKeys}"
                         SelectedItem="{Binding NewButton.HotKey}"
+                        materialDesign:HintAssist.Hint="Hotkey"
+                        Margin="0 4 0 4"
                         IsEditable="False">
                     </ComboBox>
                     <ComboBox 
                         ItemsSource="{Binding AvailableCategories}"
                         Text="{Binding NewButton.Category}"
+                        materialDesign:HintAssist.Hint="Category"
+                        Margin="0 4 0 4"
                         IsEditable="True">
                     </ComboBox>
                     <TextBox
                         Text="{Binding NewButton.Prefix}"
                         materialDesign:HintAssist.Hint="Prefix"
+                        Margin="0 0 0 4"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         Text="{Binding NewButton.Suffix}"
                         materialDesign:HintAssist.Hint="Suffix"
+                        Margin="0 0 0 4"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         Text="{Binding NewButton.SpecialDelimiters}"
                         IsEnabled="{Binding NewButton.RequireSplit}"
                         materialDesign:HintAssist.Hint="Special delimiters other than white spaces."
+                        Margin="0 0 0 4"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <CheckBox
                         IsChecked="{Binding NewButton.RequireSplit}"
+                        Margin="0 4 0 4"
                         >
                         Require Split                        
                     </CheckBox>
                     <CheckBox
                         IsChecked="{Binding NewButton.IsPrimary}"
+                        Margin="0 4 0 4"
                         >
                         Primary Button
                     </CheckBox>
                     <Button 
                         Content="Submit" 
                         Command="{Binding SubmitCommand}"
+                        Margin="0 8 0 4"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         ></Button>
                 </StackPanel>

@@ -26,7 +26,7 @@
                 Text="{Binding HotKey}"
                 Padding="4 0"
                 HorizontalAlignment="Center"
-                Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                 Margin="0 0 8 0"
                 >
                 <TextBlock.Style>
