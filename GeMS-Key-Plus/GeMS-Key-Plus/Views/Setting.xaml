@@ -18,7 +18,7 @@
         MinWidth="600"
         Title="Setting" Height="450" Width="800">
     <materialDesign:Card Margin="8">
-        <StackPanel PreviewMouseDown="StackPanel_MouseDown">
+        <StackPanel MouseDown="StackPanel_MouseDown">
             <Grid Margin="16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

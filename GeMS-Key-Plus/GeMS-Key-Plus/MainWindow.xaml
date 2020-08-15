@@ -22,6 +22,7 @@
                 Mode="PrimaryMid" 
                 materialDesign:ShadowAssist.ShadowDepth="Depth2"
                 MouseDown="ColorZone_MouseDown"
+                IsTabStop="False"
                 >
                 <StackPanel Margin="16 4">
                     <Grid Margin="0 0 0 8">
