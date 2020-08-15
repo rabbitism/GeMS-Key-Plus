@@ -83,6 +83,7 @@ namespace GeMS_Key_Plus.ViewModels
             else if (_keyMapping.ContainsKey(key))
             {
                 _keyMapping[key].Query();
+                _latestButton = _keyMapping[key];
             }
         }
     }
