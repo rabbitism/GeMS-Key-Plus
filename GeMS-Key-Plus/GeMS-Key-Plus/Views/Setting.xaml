@@ -128,18 +128,22 @@
                         materialDesign:HintAssist.Hint="Suffix"
                         Margin="0 0 0 4"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
-                        Text="{Binding NewButton.SpecialDelimiters}"
-                        IsEnabled="{Binding NewButton.RequireSplit}"
-                        materialDesign:HintAssist.Hint="Special delimiters other than white spaces."
-                        Margin="0 0 0 4"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <CheckBox
-                        IsChecked="{Binding NewButton.RequireSplit}"
-                        Margin="0 4 0 4"
-                        >
-                        Require Split                        
-                    </CheckBox>
+
+                    <StackPanel Orientation="Horizontal" Margin="0 4 0 4">
+                        <CheckBox
+                            IsChecked="{Binding NewButton.RequireSplit}"
+                            Margin="0 4 0 4"
+                            >
+                            Require Split
+                        </CheckBox>
+                        <TextBox
+                            Text="{Binding NewButton.SpecialDelimiters}"
+                            IsEnabled="{Binding NewButton.RequireSplit}"
+                            materialDesign:HintAssist.Hint="Special delimiters other than white spaces."
+                            Margin="0 0 0 4"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    </StackPanel>
+
                     <CheckBox
                         IsChecked="{Binding NewButton.IsPrimary}"
                         Margin="0 4 0 4"

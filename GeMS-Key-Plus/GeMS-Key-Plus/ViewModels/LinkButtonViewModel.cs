@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Navigation;
@@ -99,15 +100,39 @@ namespace GeMS_Key_Plus.ViewModels
             {
                 return;
             }
-            var target = Prefix + GlobalVariables.QueryString + Suffix;
-            var psi = new ProcessStartInfo
+            if (RequireSplit)
             {
-                FileName = target,
-                UseShellExecute = true
-            };
-            Process.Start(psi);
+                MultipleQuery();
+            }
+            else
+            {
+                var target = Prefix + GlobalVariables.QueryString + Suffix;
+                var psi = new ProcessStartInfo
+                {
+                    FileName = target,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+            }
             GlobalVariables.ActionHistory.Put(GlobalVariables.QueryString, HotKey);
             App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void MultipleQuery()
+        {
+            string[] words = GlobalVariables.QueryString.Split((" \t\n\r" + SpecialDelimiters).ToCharArray());
+            foreach(string word in words)
+            {
+                if (string.IsNullOrWhiteSpace(word)) continue;
+                var target = Prefix + word + Suffix;
+                var psi = new ProcessStartInfo
+                {
+                    FileName = target,
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+                Thread.Sleep(200);
+            }
         }
     }
 }
