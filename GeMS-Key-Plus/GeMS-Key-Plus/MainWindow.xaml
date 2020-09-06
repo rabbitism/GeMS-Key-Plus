@@ -35,16 +35,18 @@
                                    >Keyz</TextBlock>
                         <StackPanel Orientation="Horizontal" Grid.Column="1">
                             <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                    IsTabStop="False"
                                     Click="SettingButton_Click"
                                     >
                                 <materialDesign:PackIcon Kind="Settings" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
                             </Button>
                             <Button 
                                 Style="{StaticResource MaterialDesignToolForegroundButton}" 
+                                IsTabStop="False"
                                 Command="{Binding ReloadButtonsCommand}">
-                                <materialDesign:PackIcon Kind="Refresh" Foreground="{StaticResource PrimaryHueMidForegroundBrush}" ></materialDesign:PackIcon>
+                                <materialDesign:PackIcon Kind="Refresh" IsTabStop="False" Foreground="{StaticResource PrimaryHueMidForegroundBrush}" ></materialDesign:PackIcon>
                             </Button>
-                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" IsTabStop="False"
                                     Click="CloseButton_Click"
                                     >
                                 <materialDesign:PackIcon Kind="WindowMinimize" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
@@ -69,11 +71,12 @@
                             materialDesign:TextFieldAssist.HasClearButton="True"
                             Text="{Binding QueryString}"
                             >
-                            
+
                         </TextBox>
                         <materialDesign:PopupBox 
                             Grid.Column="1" 
                             Padding="8" 
+                            VerticalAlignment="Top"
                             IsTabStop="False" 
                             StaysOpen="True">
                             <i:Interaction.Triggers>
@@ -81,15 +84,16 @@
                                     <i:InvokeCommandAction Command="{Binding ReloadActionHistoryCommand}" ></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                            
+
                             <materialDesign:PopupBox.ToggleContent>
                                 <materialDesign:PackIcon 
                                     Kind="History"
+                                    VerticalAlignment="Top"
                                     Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
                                     IsTabStop="False"
                                     ></materialDesign:PackIcon>
                             </materialDesign:PopupBox.ToggleContent>
-                            
+
                             <StackPanel>
                                 <Grid Margin="16 8 16 0">
                                     <Grid.ColumnDefinitions>
@@ -139,7 +143,7 @@
             </materialDesign:ColorZone>
             <views:ButtonPanelView DataContext="{Binding ButtonPanel}" PreviewKeyUp="ButtonPanelView_KeyUp" Margin="16 8"></views:ButtonPanelView>
         </StackPanel>
-        
+
 
     </materialDesign:Card>
 </Window>

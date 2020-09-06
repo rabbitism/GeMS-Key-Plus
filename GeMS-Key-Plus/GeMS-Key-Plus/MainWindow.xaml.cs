@@ -79,6 +79,7 @@ namespace GeMS_Key_Plus
 
         private void ButtonPanelView_KeyUp(object sender, KeyEventArgs e)
         {
+            
             if(this.DataContext is MainViewModel vm)
             {
                 vm.Query(e);

@@ -9,10 +9,10 @@
              d:DataContext="{x:Type vm:CategoryViewModel}"
              >
     <StackPanel Orientation="Horizontal">
-        <TextBlock Text="{Binding CategoryName}" 
+        <TextBlock Text="{Binding CategoryName}"
                    VerticalAlignment="Center">
         </TextBlock>
-        <ItemsControl ItemsSource="{Binding Buttons}">
+        <ItemsControl ItemsSource="{Binding Buttons}" IsTabStop="False">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"></StackPanel>

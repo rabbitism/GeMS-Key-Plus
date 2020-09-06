@@ -19,6 +19,7 @@
     <Button 
         Command="{Binding QueryCommand}" 
         Style="{Binding IsPrimary, Converter={StaticResource StyleConverter}}"
+        IsTabStop="False"
         Padding="8 0"
         >
         <StackPanel Orientation="Horizontal">
