@@ -35,6 +35,7 @@ namespace GeMS_Key_Plus
             InitializeComponent();
             this.DataContext = new MainViewModel();
             _hotKey = new HotKey(Key.G, KeyModifier.Alt, Copy);
+            this.WindowState = WindowState.Minimized;
         }
 
         private void ColorZone_MouseDown(object sender, MouseButtonEventArgs e)
@@ -57,11 +58,11 @@ namespace GeMS_Key_Plus
             if (WindowState == WindowState.Minimized)
             {
                 Ahk.ExecRaw("Send, ^c");
-                Thread.Sleep(300);
-                (this.DataContext as MainViewModel).QueryString = Clipboard.GetText().Trim();
+                Thread.Sleep(200);
+                this.queryStringBox.Text = Clipboard.GetText().Trim();
                 WindowState = WindowState.Normal;
                 Activate();
-                Focus();
+                Keyboard.Focus(buttonPanelView);
                 ShowInTaskbar = true;              
             }
             else
@@ -79,7 +80,6 @@ namespace GeMS_Key_Plus
 
         private void ButtonPanelView_KeyUp(object sender, KeyEventArgs e)
         {
-            
             if(this.DataContext is MainViewModel vm)
             {
                 vm.Query(e);
@@ -88,11 +88,10 @@ namespace GeMS_Key_Plus
 
         private void SettingButton_Click(object sender, RoutedEventArgs e)
         {
-            if(this.DataContext is MainViewModel vm)
-            {
-                Setting settingWindow = new Setting(vm);
-                settingWindow.Show();
-            }
+            Setting settingWindow = new Setting();
+            settingWindow.Show();
         }
+
+        
     }
 }

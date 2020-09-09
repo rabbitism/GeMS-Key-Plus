@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GeMS_Key_Plus.Events;
+using Prism.Events;
 
 namespace GeMS_Key_Plus.Views
 {
@@ -21,25 +23,15 @@ namespace GeMS_Key_Plus.Views
     /// </summary>
     public partial class Setting : Window
     {
-        private MainViewModel _mainViewModel;
         public Setting()
         {
             InitializeComponent();
-            _mainViewModel = null;
-            this.DataContext = new SettingViewModel();
-        }
-
-        public Setting(MainViewModel mainViewModel)
-        {
-            InitializeComponent();
-            _mainViewModel = mainViewModel;
-            this.DataContext = new SettingViewModel();
+            this.DataContext = new SettingViewModel(); 
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            _mainViewModel.ReloadButtonsCommand.Execute();
-            Debug.WriteLine("Close Settings");
+            EventAggregatorRepository.GetInstance().GetEvent<RefreshButtonLayoutEvent>().Publish();
             this.Close();
         }
 

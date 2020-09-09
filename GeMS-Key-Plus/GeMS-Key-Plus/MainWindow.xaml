@@ -59,6 +59,7 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBox
+                            x:Name="queryStringBox"
                             MinWidth="400"
                             MaxWidth="800"
                             Margin="8 0"
@@ -69,7 +70,7 @@
                             Background="{StaticResource PrimaryHueMidForegroundBrush}"
                             Foreground="{StaticResource PrimaryHueMidBrush}"
                             materialDesign:TextFieldAssist.HasClearButton="True"
-                            Text="{Binding QueryString}"
+                            Text="{Binding QueryString, Mode=TwoWay}"
                             >
 
                         </TextBox>
@@ -141,7 +142,7 @@
                     </Grid>
                 </StackPanel>
             </materialDesign:ColorZone>
-            <views:ButtonPanelView DataContext="{Binding ButtonPanel}" PreviewKeyUp="ButtonPanelView_KeyUp" Margin="16 8"></views:ButtonPanelView>
+            <views:ButtonPanelView x:Name="buttonPanelView" DataContext="{Binding ButtonPanel}" PreviewKeyUp="ButtonPanelView_KeyUp" Margin="16 8"></views:ButtonPanelView>
         </StackPanel>
 
 

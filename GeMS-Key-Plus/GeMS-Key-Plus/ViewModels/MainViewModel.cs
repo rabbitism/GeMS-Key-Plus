@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Diagnostics;
 using System.Windows.Controls;
 using Prism.Commands;
+using GeMS_Key_Plus.Events;
 
 namespace GeMS_Key_Plus.ViewModels
 {
@@ -96,6 +97,10 @@ namespace GeMS_Key_Plus.ViewModels
             QueryHistoryCommand = new DelegateCommand<ActionRecordViewModel>(QueryHistory);
             ReloadButtonsCommand = new DelegateCommand(ReloadButtons);
             ClearCacheCommand = new DelegateCommand(ClearCache);
+            EventAggregatorRepository
+                .GetInstance()
+                .GetEvent<RefreshButtonLayoutEvent>()
+                .Subscribe(ReloadButtons);
         }
 
         public void Query(KeyEventArgs args)
