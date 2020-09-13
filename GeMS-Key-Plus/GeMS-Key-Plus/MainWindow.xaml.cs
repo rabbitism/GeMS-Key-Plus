@@ -59,7 +59,8 @@ namespace GeMS_Key_Plus
             {
                 Ahk.ExecRaw("Send, ^c");
                 Thread.Sleep(200);
-                this.queryStringBox.Text = Clipboard.GetText().Trim();
+                
+                (this.DataContext as MainViewModel).QueryString = Clipboard.GetText().Trim();
                 WindowState = WindowState.Normal;
                 Activate();
                 Keyboard.Focus(buttonPanelView);

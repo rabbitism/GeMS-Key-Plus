@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GeMS_Key_Plus.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <StackPanel Margin="8">
         <TextBlock>1. Press Alt+G to pass highlighted text into Keyz.</TextBlock>
         <TextBlock>2. Press Button with mouse or Hotkey on keyboard.</TextBlock>
         <TextBlock>3. You can define you own hotkey in Setting.</TextBlock>
