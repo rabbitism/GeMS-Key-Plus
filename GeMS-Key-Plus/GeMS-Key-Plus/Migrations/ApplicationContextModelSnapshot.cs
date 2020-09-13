@@ -33,16 +33,13 @@ namespace GeMS_Key_Plus.Migrations
                     b.Property<bool>("IsPrimary")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Prefix")
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("RequireSplit")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SpecialDelimiters")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Suffix")
+                    b.Property<string>("Template")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

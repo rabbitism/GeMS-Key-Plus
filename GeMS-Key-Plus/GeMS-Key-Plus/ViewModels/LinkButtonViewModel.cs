@@ -41,16 +41,10 @@ namespace GeMS_Key_Plus.ViewModels
             set { _category = value; RaisePropertyChanged(nameof(Category)); }
         }
 
-        private string _prefix;
-        public string Prefix {
-            get { return _prefix; }
-            set { _prefix = value; RaisePropertyChanged(nameof(Prefix)); }
-        }
-
-        private string _suffix;
-        public string Suffix {
-            get { return _suffix; }
-            set { _suffix = value; RaisePropertyChanged(nameof(Suffix)); }
+        private string _template;
+        public string Template {
+            get { return _template; }
+            set { _template = value; RaisePropertyChanged(nameof(Template)); }
         }
 
         private bool _requireSplit;
@@ -87,8 +81,7 @@ namespace GeMS_Key_Plus.ViewModels
             this.HotKey = button.Hotkey;
             this.Id = button.Id;
             this.IsPrimary = button.IsPrimary;
-            this.Prefix = button.Prefix;
-            this.Suffix = button.Suffix;
+            this.Template = button.Template;
             this.RequireSplit = button.RequireSplit;
             this.SpecialDelimiters = button.SpecialDelimiters;
             QueryCommand = new DelegateCommand(Query);
@@ -96,17 +89,18 @@ namespace GeMS_Key_Plus.ViewModels
 
         public void Query()
         {
+
             if (string.IsNullOrWhiteSpace(GlobalVariables.QueryString))
             {
                 return;
             }
-            if (RequireSplit)
+            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
                 MultipleQuery();
             }
             else
             {
-                var target = Prefix + GlobalVariables.QueryString + Suffix;
+                var target = Template.Replace("{%s}", GlobalVariables.QueryString);
                 var psi = new ProcessStartInfo
                 {
                     FileName = target,
@@ -124,7 +118,7 @@ namespace GeMS_Key_Plus.ViewModels
             foreach(string word in words)
             {
                 if (string.IsNullOrWhiteSpace(word)) continue;
-                var target = Prefix + word + Suffix;
+                var target = Template.Replace("{%s}", word);
                 var psi = new ProcessStartInfo
                 {
                     FileName = target,

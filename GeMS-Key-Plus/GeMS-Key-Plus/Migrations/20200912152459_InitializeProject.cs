@@ -2,7 +2,7 @@
 
 namespace GeMS_Key_Plus.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitializeProject : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,8 +15,7 @@ namespace GeMS_Key_Plus.Migrations
                     Hotkey = table.Column<string>(nullable: true),
                     ButtonName = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
-                    Prefix = table.Column<string>(nullable: true),
-                    Suffix = table.Column<string>(nullable: true),
+                    Template = table.Column<string>(nullable: true),
                     RequireSplit = table.Column<bool>(nullable: false),
                     IsPrimary = table.Column<bool>(nullable: false),
                     SpecialDelimiters = table.Column<string>(nullable: true)

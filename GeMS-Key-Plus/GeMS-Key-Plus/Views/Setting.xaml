@@ -56,26 +56,11 @@
                             Header="Category" 
                             DisplayMemberBinding="{Binding Category}"/>
                         <GridViewColumn 
-                            Header="Prefix" 
-                            DisplayMemberBinding="{Binding Prefix}"/>
-                        <GridViewColumn 
-                            Header="Suffix" 
-                            DisplayMemberBinding="{Binding Suffix}"/>
+                            Header="Template" 
+                            DisplayMemberBinding="{Binding Template}"/>
                         <GridViewColumn 
                             Header="Delimiters" 
                             DisplayMemberBinding="{Binding SpecialDelimiters}"/>
-                        <GridViewColumn 
-                            Header="Require Split" 
-                            >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox 
-                                        IsChecked="{Binding RequireSplit}"
-                                        IsEnabled="False"
-                                        ></CheckBox>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
                         <GridViewColumn 
                             Header="Primary" 
                             >
@@ -119,31 +104,15 @@
                         IsEditable="True">
                     </ComboBox>
                     <TextBox
-                        Text="{Binding NewButton.Prefix}"
-                        materialDesign:HintAssist.Hint="Prefix"
+                        Text="{Binding NewButton.Template}"
+                        materialDesign:HintAssist.Hint="Template (use {%s} as placeholder)"
                         Margin="0 0 0 4"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
-                        Text="{Binding NewButton.Suffix}"
-                        materialDesign:HintAssist.Hint="Suffix"
-                        Margin="0 0 0 4"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <StackPanel Orientation="Horizontal" Margin="0 4 0 4">
-                        <CheckBox
-                            IsChecked="{Binding NewButton.RequireSplit}"
-                            Margin="0 4 0 4"
-                            >
-                            Require Split
-                        </CheckBox>
-                        <TextBox
                             Text="{Binding NewButton.SpecialDelimiters}"
-                            IsEnabled="{Binding NewButton.RequireSplit}"
                             materialDesign:HintAssist.Hint="Special delimiters other than white spaces."
                             Margin="0 0 0 4"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    </StackPanel>
-
                     <CheckBox
                         IsChecked="{Binding NewButton.IsPrimary}"
                         Margin="0 4 0 4"

@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeMS_Key_Plus.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200811145123_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200912152459_InitializeProject")]
+    partial class InitializeProject
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,16 +35,13 @@ namespace GeMS_Key_Plus.Migrations
                     b.Property<bool>("IsPrimary")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Prefix")
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("RequireSplit")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SpecialDelimiters")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Suffix")
+                    b.Property<string>("Template")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

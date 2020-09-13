@@ -40,6 +40,17 @@
                                     >
                                 <materialDesign:PackIcon Kind="Settings" Foreground="{StaticResource PrimaryHueMidForegroundBrush}"></materialDesign:PackIcon>
                             </Button>
+                            <materialDesign:PopupBox>
+                                <materialDesign:PopupBox.ToggleContent>
+                                    <materialDesign:PackIcon 
+                                    Kind="QuestionMark"
+                                    VerticalAlignment="Top"
+                                    Foreground="{StaticResource PrimaryHueMidForegroundBrush}"
+                                    IsTabStop="False"
+                                    ></materialDesign:PackIcon>
+                                </materialDesign:PopupBox.ToggleContent>
+                                <controls:GuideControl></controls:GuideControl>
+                            </materialDesign:PopupBox>
                             <Button 
                                 Style="{StaticResource MaterialDesignToolForegroundButton}" 
                                 IsTabStop="False"

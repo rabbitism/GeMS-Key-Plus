@@ -70,8 +70,7 @@ namespace GeMS_Key_Plus.ViewModels
                     context.Buttons.Add(new LinkButton()
                     {
                         SpecialDelimiters = "",
-                        Suffix = "",
-                        Prefix = "https://www.google.com/search?q=",
+                        Template = "https://www.google.com/search?q={%s}",
                         RequireSplit=  false,
                         ButtonName = "Google",
                         Category = "Search",
@@ -81,8 +80,7 @@ namespace GeMS_Key_Plus.ViewModels
                     context.Buttons.Add(new LinkButton()
                     {
                         SpecialDelimiters = "",
-                        Suffix = "",
-                        Prefix = "https://www.youdao.com/w/eng/",
+                        Template = "https://www.youdao.com/w/eng/{%s}",
                         RequireSplit = false,
                         ButtonName = "Youdao",
                         Category = "Search",

@@ -51,8 +51,6 @@ namespace GeMS_Key_Plus.ViewModels
             set { _availableCategories = value; RaisePropertyChanged(nameof(AvailableCategories)); }
         }
 
-
-
         private ObservableCollection<LinkButton> _buttons;
 
         public ObservableCollection<LinkButton> Buttons {
@@ -96,13 +94,12 @@ namespace GeMS_Key_Plus.ViewModels
             LinkButton button = new LinkButton()
             {
                 SpecialDelimiters = NewButton.SpecialDelimiters,
-                Suffix = NewButton.Suffix,
                 RequireSplit = NewButton.RequireSplit,
                 ButtonName = NewButton.ButtonName,
                 Category = NewButton.Category,
                 Hotkey = NewButton.HotKey,
                 IsPrimary = NewButton.IsPrimary,
-                Prefix = NewButton.Prefix,
+                Template = NewButton.Template,
             };
             using(ApplicationContext context = new ApplicationContext())
             {
