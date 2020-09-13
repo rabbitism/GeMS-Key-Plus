@@ -5,11 +5,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>GeMS_Key_Plus</RootNamespace>
     <UseWPF>true</UseWPF>
-    <Version>0.2.1</Version>
+    <Version>0.3.0</Version>
     <Authors>Rabbitism</Authors>
     <Company>Galaxism</Company>
     <Product>Keyz</Product>
     <ApplicationIcon>Key.ico</ApplicationIcon>
+    <Description>Quickly search something!</Description>
   </PropertyGroup>
 
   <ItemGroup>
