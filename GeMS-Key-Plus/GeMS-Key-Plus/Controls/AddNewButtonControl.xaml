@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="GeMS_Key_Plus.Controls.AddNewButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GeMS_Key_Plus.Controls"
+             mc:Ignorable="d" 
+             xmlns:vms="clr-namespace:GeMS_Key_Plus.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:controls="clr-namespace:GeMS_Key_Plus.Controls"
+             d:DataContext="{x:Type vms:SettingViewModel}"
+             >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" MinWidth="30"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <materialDesign:PackIcon 
+            Grid.Row="0"
+            VerticalAlignment="Center"
+            Kind="TagPlusOutline"
+            ></materialDesign:PackIcon>
+        <materialDesign:PackIcon 
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            Kind="KeyboardOutline"
+            ></materialDesign:PackIcon>
+        <materialDesign:PackIcon 
+            Grid.Row="2"
+            VerticalAlignment="Center"
+            Kind="Shape"
+            ></materialDesign:PackIcon>
+        <materialDesign:PackIcon 
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Kind="CodeJson"
+            ></materialDesign:PackIcon>
+        <materialDesign:PackIcon 
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            Kind="SlashForward"
+            ></materialDesign:PackIcon>
+        <TextBox
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="{Binding NewButton.ButtonName}"
+            Margin="0 0 0 4"
+            materialDesign:HintAssist.Hint="Button Name"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <ComboBox 
+            Grid.Row="1"
+            Grid.Column="1"
+            ItemsSource="{Binding AvailableKeys}"
+            SelectedItem="{Binding NewButton.HotKey}"
+            materialDesign:HintAssist.Hint="Hotkey"
+            Margin="0 4 0 4"
+            IsEditable="False">
+        </ComboBox>
+        <ComboBox 
+            Grid.Row="2"
+            Grid.Column="1"
+            ItemsSource="{Binding AvailableCategories}"
+            Text="{Binding NewButton.Category}"
+            materialDesign:HintAssist.Hint="Category"
+            Margin="0 4 0 4"
+            IsEditable="True">
+        </ComboBox>
+        <TextBox
+            Grid.Row="3"
+            Grid.Column="1"
+            Text="{Binding NewButton.Template}"
+            materialDesign:HintAssist.Hint="Template (use {%s} as placeholder)"
+            Margin="0 0 0 4"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox
+            Grid.Row="4"
+            Grid.Column="1"
+            Text="{Binding NewButton.SpecialDelimiters}"
+            materialDesign:HintAssist.Hint="Special delimiters other than white spaces."
+            Margin="0 0 0 4"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <CheckBox
+            Grid.Row="5"
+            Grid.Column="1"
+            IsChecked="{Binding NewButton.IsPrimary}"
+            Margin="0 4 0 4"
+            >
+            Primary Button
+        </CheckBox>
+    </Grid>
+</UserControl>
