@@ -13,6 +13,10 @@ Keyz is an application for quickly search keywords in various websites.
 
 ![layout](./resources/MainLayout.png)
 
+## Advanced usage
+
+1. Press Ctrl together with hotkey (or button) will search words separately.
+
 ## Customization
 
 You can easy customize and define you own hotkey in setting.
@@ -20,6 +24,7 @@ You can easy customize and define you own hotkey in setting.
 You can add or delete buttons, editting is not supported yet.
 
 ![layout](./resources/Setting.png)
+![layout](./resources/Setting2.png)
 
 ## Mentions
 
