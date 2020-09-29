@@ -1,4 +1,5 @@
-﻿using GeMS_Key_Plus.Global;
+﻿using GeMS_Key_Plus.Events;
+using GeMS_Key_Plus.Global;
 using GeMS_Key_Plus.Models;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -109,7 +110,11 @@ namespace GeMS_Key_Plus.ViewModels
                 Process.Start(psi);
             }
             GlobalVariables.ActionHistory.Put(GlobalVariables.QueryString, HotKey);
-            App.Current.MainWindow.WindowState = System.Windows.WindowState.Minimized;
+            EventAggregatorRepository
+                .GetInstance()
+                .EventAggregator
+                .GetEvent<MinimizeWindowEvent>()
+                .Publish();
         }
 
         private void MultipleQuery()

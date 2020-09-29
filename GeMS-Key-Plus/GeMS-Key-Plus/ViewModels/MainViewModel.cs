@@ -97,6 +97,7 @@ namespace GeMS_Key_Plus.ViewModels
             ClearCacheCommand = new DelegateCommand(ClearCache);
             EventAggregatorRepository
                 .GetInstance()
+                .EventAggregator
                 .GetEvent<RefreshButtonLayoutEvent>()
                 .Subscribe(ReloadButtons);
         }

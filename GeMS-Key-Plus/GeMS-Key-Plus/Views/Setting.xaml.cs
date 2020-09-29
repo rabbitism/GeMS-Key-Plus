@@ -31,7 +31,11 @@ namespace GeMS_Key_Plus.Views
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            EventAggregatorRepository.GetInstance().GetEvent<RefreshButtonLayoutEvent>().Publish();
+            EventAggregatorRepository
+                .GetInstance()
+                .EventAggregator
+                .GetEvent<RefreshButtonLayoutEvent>()
+                .Publish();
             this.Close();
         }
 

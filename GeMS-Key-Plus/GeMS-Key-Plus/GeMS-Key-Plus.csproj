@@ -5,16 +5,23 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>GeMS_Key_Plus</RootNamespace>
     <UseWPF>true</UseWPF>
-    <Version>0.3.0</Version>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Version>0.4.0</Version>
     <Authors>Rabbitism</Authors>
     <Company>Galaxism</Company>
     <Product>Keyz</Product>
     <ApplicationIcon>Key.ico</ApplicationIcon>
     <Description>Quickly search something!</Description>
+    <PackageReleaseNotes>Changelog:
+1. Keyz new only remains in as a notification icon, It will not show in task bar. 
+2. Add context menu for icon so you can right click and close Keyz.
+3. Use EventAggregator to trigger window state change when click buttons with mouse. 
+4. Use system command to change window state instead of changing window state manually.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="ApplicationData.db" />
+    <None Remove="Key.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +50,9 @@
     <Resource Include="ApplicationData.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Key.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

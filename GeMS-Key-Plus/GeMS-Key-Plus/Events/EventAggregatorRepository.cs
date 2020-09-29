@@ -7,18 +7,21 @@ namespace GeMS_Key_Plus.Events
 {
     internal class EventAggregatorRepository
     {
-        private static EventAggregator _instance;
+        private static EventAggregatorRepository _instance;
+
         private EventAggregatorRepository()
         {
 
         }
-        public static EventAggregator GetInstance()
+        public static EventAggregatorRepository GetInstance()
         {
             if(_instance is null)
             {
-                _instance = new EventAggregator();
+                _instance = new EventAggregatorRepository();
             }
             return _instance;
         }
+
+        public EventAggregator EventAggregator { get; } = new EventAggregator();
     }
 }
